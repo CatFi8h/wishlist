@@ -1,4 +1,4 @@
-FROM openjdk:1.8
+FROM openjdk:15
 CMD ["mkdir", "app"]
 WORKDIR app/
 COPY gradle/gradle-wrapper.jar app/app.jar

@@ -2,14 +2,16 @@ package com.igor.wishlist.repository.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "WISHES")
+@Table(name = "wishes")
 public class WishEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,7 @@ public class WishEntity {
     private Double wishPrice;
     @Column(name = "wish_description")
     private String description;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wishlist_id")
     private WishlistEntity wishlist;
 }

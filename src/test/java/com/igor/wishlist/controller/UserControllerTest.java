@@ -1,5 +1,6 @@
 package com.igor.wishlist.controller;
 
+import com.igor.wishlist.controller.web.UserController;
 import com.igor.wishlist.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;

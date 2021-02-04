@@ -1,7 +1,10 @@
 package com.igor.wishlist.repository;
 
-import com.igor.wishlist.repository.entities.UserEntity;
+import com.igor.wishlist.repository.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }

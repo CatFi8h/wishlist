@@ -1,12 +1,13 @@
-package com.igor.wishlist.controller;
+package com.igor.wishlist.controller.web;
 
 import com.igor.wishlist.controller.request.WishlistResponse;
 import com.igor.wishlist.mapper.WishlistMapper;
 import com.igor.wishlist.repository.entities.WishlistEntity;
 import com.igor.wishlist.service.WishlistService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,14 +23,19 @@ public class WishlistController {
     private final WishlistMapper wishlistMapper;
 
     @GetMapping("/{userId}")
-    private List<WishlistResponse> getList(@Param("userId") Long userId) {
-        List<WishlistEntity> list = wishlistService.getWishlist(userId);
+    private List<WishlistResponse> getList(@PathVariable("userId") Long userId) {
+        final List<WishlistEntity> list = wishlistService.getWishlist(userId);
 
-        List<WishlistResponse> arrayList = new ArrayList<>();
+        final List<WishlistResponse> arrayList = new ArrayList<>();
         for (WishlistEntity wishlistEntity : list) {
             WishlistResponse wishlistResponse = wishlistMapper.mapWishListEntityToWishListResponse(wishlistEntity);
             arrayList.add(wishlistResponse);
         }
         return arrayList;
+    }
+
+    @GetMapping(value = "/logout-success")
+    public String getLogoutPage(Model model) {
+        return "logout";
     }
 }

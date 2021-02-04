@@ -1,8 +1,18 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.liquibase:liquibase-gradle-plugin:2.0.4'
+	}
+}
 plugins {
 	id 'org.springframework.boot' version '2.4.1'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'org.liquibase.gradle' version '2.0.4'
 }
+apply plugin: 'org.liquibase.gradle'
 
 group = 'com.igor'
 version = '0.0.1-SNAPSHOT'
@@ -36,8 +46,15 @@ dependencies {
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	testCompile("org.springframework.security:spring-security-test")
 	compile group: 'org.apache.maven.plugins', name: 'maven-surefire-plugin', version: '2.22.2'
+	compile group: 'org.liquibase', name: 'liquibase-core', version: '4.2.2'
 	compile("org.springframework.boot:spring-boot-starter-actuator")
+//	compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.5.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.4.2'
+	liquibaseRuntime 'org.liquibase:liquibase-core:4.2.2'
+	liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:3.0.0'
+	liquibaseRuntime 'org.liquibase:liquibase-cdi:4.2.2'
 }
+
 
 test {
 	useJUnitPlatform()

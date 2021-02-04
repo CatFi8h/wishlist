@@ -1,4 +1,4 @@
-package com.igor.wishlist.controller;
+package com.igor.wishlist.controller.web;
 
 import com.igor.wishlist.controller.request.UserRequest;
 import com.igor.wishlist.controller.request.UserResponse;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping(path = "user/{id}")
+    @GetMapping(path = "/user/{id}")
     public UserResponse getUser(@PathVariable(value = "id") final Long id) throws Exception {
         return userService.findUserById(id);
     }
 
-    @PostMapping(path = "user")
+    @PostMapping(path = "/user")
     public Long addUser(UserRequest request) {
         return userService.addUser(request);
     }
