@@ -1,0 +1,18 @@
+logging:
+  file:
+    name: ${logging.file.path}/myapp.log
+    path: logs
+spring:
+  profiles:
+    active: default
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  datasource:
+    username: my_user
+    password: my_password
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/wishlist_db

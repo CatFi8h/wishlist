@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "security_role")
+@Table(name = "security_role", schema = "wishlist_schema")
 public class Role implements GrantedAuthority {
 
     @Id

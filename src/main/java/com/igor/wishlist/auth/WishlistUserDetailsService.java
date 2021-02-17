@@ -3,13 +3,14 @@ package com.igor.wishlist.auth;
 import com.igor.wishlist.repository.UserRepository;
 import com.igor.wishlist.repository.entities.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class WishlistUserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+public class WishlistUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 

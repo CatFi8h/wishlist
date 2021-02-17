@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "wishes")
+@Table(name = "wishes", schema = "wishlist_schema")
 public class WishEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

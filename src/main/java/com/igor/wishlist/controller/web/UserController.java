@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping(path = "/user/{id}")
+    @GetMapping(path = "/{id}")
     public UserResponse getUser(@PathVariable(value = "id") final Long id) throws Exception {
         return userService.findUserById(id);
     }
 
-    @PostMapping(path = "/user")
+    @PostMapping()
     public Long addUser(UserRequest request) {
         return userService.addUser(request);
     }

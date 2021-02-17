@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "wishlists")
+@Table(name = "wishlists", schema = "wishlist_schema")
 public class WishlistEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

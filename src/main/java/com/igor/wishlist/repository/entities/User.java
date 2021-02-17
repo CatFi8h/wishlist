@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "wishlist_schema")
 public class User {
     @Id
     private Long id;
